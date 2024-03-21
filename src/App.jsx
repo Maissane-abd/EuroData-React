@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import ListCard from "./components/listCard";
 
 function App() {
   // Déclaration de l'état pour stocker les données des pays
@@ -35,6 +36,15 @@ function App() {
         <p className="text-gray-100 text-xl mb-8">
           Click on a card to reveal a country's information.
         </p>
+        {countries && (
+          // Affichage des cartes de pays si des données sont disponibles
+          <ul className="grid min[450px]:grid-cols-2 md:grid-cols-3 lg:grid-cols4 gap-10 auto-rows-[200px]">
+            {/* Mapping des données des pays pour afficher chaque carte de pays */}
+            {countries.map((country, index) => (
+              <ListCard key={index} country={country} />
+            ))}
+          </ul>
+        )}
       </div>
     </div>
   );
